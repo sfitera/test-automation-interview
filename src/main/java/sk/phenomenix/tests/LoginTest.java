@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sk.phenomenix.framework.BaseTest;
 import sk.phenomenix.pages.LoginPage;
+import sk.phenomenix.pages.MainPage;
 
 public class LoginTest extends BaseTest {
 
@@ -15,10 +16,10 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
-        loginPage.clickLogin();
+        MainPage mainPage = loginPage.clickLogin();
 
         // Verify successful login
-        boolean isLoggedIn = driver.findElements(By.id("logout")).size() > 0;
+        boolean isLoggedIn = mainPage.isShoppingCardLinkDisplayed();
         Assert.assertTrue(isLoggedIn, "User login was not successful");
     }
 }

@@ -8,9 +8,9 @@ public class LoginPage {
     private WebDriver driver;
 
     // Locators
-    private By usernameField = By.id("username");
+    private By usernameField = By.id("user-name");
     private By passwordField = By.id("password");
-    private By loginButton = By.id("login");
+    private By loginButton = By.id("login-button");
 
     // Constructor
     public LoginPage(WebDriver driver) {
@@ -26,7 +26,8 @@ public class LoginPage {
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    public void clickLogin() {
+    public MainPage clickLogin() {
         driver.findElement(loginButton).click();
+        return new MainPage(driver);
     }
 }
