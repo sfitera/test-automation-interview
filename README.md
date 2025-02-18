@@ -33,3 +33,7 @@ Find out how to run the tests from the command line using **Maven** and **TestNG
 
   ```sh
   mvn clean test
+
+✅ **Submission instructions:**  
+- **Task 1 & Task 2 → Commit to the forked repo.**  
+- **Task 3 → Document the solution in `README.md`.**  
