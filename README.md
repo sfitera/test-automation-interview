@@ -37,3 +37,11 @@ Find out how to run the tests from the command line using **Maven** and **TestNG
 ### ✅ Submission instructions:  
 - **Task 1 & Task 2 → Commit to the forked repo.**  
 - **Task 3 → Document the solution in `README.md`.**  
+
+
+TASK 3: 
+I used the command : mvn clean test
+Beforehand i have moved all tests into the test directory (src/test/java/sk/phenomenix/pages) where they should be.
+Then the tests can be run with the mentioned command automatically. 
+I was also searching the internet for alternative solution, found that tests can be run using testng.xml,
+but this i found the most logical. 

@@ -1,16 +1,13 @@
-package sk.phenomenix.tests;
+package sk.phenomenix.pages;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sk.phenomenix.framework.BaseTest;
-import sk.phenomenix.pages.LoginPage;
-import sk.phenomenix.pages.MainPage;
 
 public class LoginTest extends BaseTest {
 
     @Test
-    public void testSuccessfulLogin() {
+    public void testSuccessfulLogin() throws InterruptedException {
         driver.get("https://www.saucedemo.com/");
 
         LoginPage loginPage = new LoginPage(driver);
@@ -20,6 +17,6 @@ public class LoginTest extends BaseTest {
 
         // Verify successful login
         boolean isLoggedIn = mainPage.isShoppingCardLinkDisplayed();
-        Assert.assertTrue(isLoggedIn, "User login was not successful");
+        Assert.assertTrue(isLoggedIn, "User login was successful");
     }
 }

@@ -1,12 +1,13 @@
-package sk.phenomenix.tests;
+package sk.phenomenix.pages;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sk.phenomenix.framework.BaseTest;
-import sk.phenomenix.pages.LoginPage;
-import sk.phenomenix.pages.MainPage;
 
 public class LoginLockedOutUserTest extends BaseTest {
+
+    private final By messagePath = By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]");
 
     @Test
     public void testUnsuccessfulLogin() {
@@ -17,8 +18,15 @@ public class LoginLockedOutUserTest extends BaseTest {
         loginPage.enterPassword("secret_sauce");
         MainPage mainPage = loginPage.clickLogin();
 
+
+        String errorMessage = driver.findElement(messagePath).getText();
+        Assert.assertEquals(errorMessage, "Epic sadface: Sorry, this user has been locked out.");
+
         // Verify successful login
         boolean isLoggedIn = mainPage.isShoppingCardLinkDisplayed();
-        Assert.assertFalse(isLoggedIn, "User login was successful even if user was locked out");
+        Assert.assertFalse(isLoggedIn, "Epic sadface: Sorry, this user has been locked out.");
+
     }
 }
+
+
